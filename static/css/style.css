@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "Cafe24Oneprettynight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "MaruBuri-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.0/MaruBuri-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GyeonggiBatang";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiBatang.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+fc {
+  color: blue;
+}
+
+fc2 {
+  color: rgb(255, 252, 72);
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+}
+
+gofont {
+  font-family: "MaruBuri-Regular";
+  font-size: 30px;
+  color: white;
+}
+
+gofont2 {
+  font-family: "MaruBuri-Regular";
+  font-size: 25px;
+  color: white;
+}
