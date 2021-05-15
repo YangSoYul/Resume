@@ -58,21 +58,7 @@
   font-size: 40px;
 }
 
-img.relative{
-    position: absolute;
-    left: 2000px;
-    top: 250px;
-}
 
-p.imgp{
-  position: absolute;
-  left:2060px;
-  top: 600px;
-  z-index: 1;
-  font-family: 'TmoneyRoundWindExtraBold';
-  font-size: 30px;
-  color: black;
-}
 </style>
 <body>
     <navfont>
@@ -83,7 +69,7 @@ p.imgp{
                 <a class="nav-link active" aria-current="page" href="#">지원자명단</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'crate' %}">지원하기</a>
+                <a class="nav-link" href="{% url 'crate' %}" style="color: blue;">지원하기</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" >지원자정보</a>
@@ -97,11 +83,9 @@ p.imgp{
       </nav>
 </navfont>
 <h1 style="font-family: 'Cafe24Oneprettynight'; font-size: 80px; color: rgb(255, 246, 116)   ;"><span style="border-bottom: 11px solid #fcfdc9; padding: 0 0 0 0.2em;margin-top: 15  px;">지원자 명단</span></h1> <br>
+<p style="font-family: 'Cafe24Oneprettynight';font-size: 25px; font-style: italic;color: rgb(21, 95, 255);">지원서를 작성하실 분은 상단에 지원하기 버튼을 눌러주세요.</p>
 
     
-<a href="{% url 'crate' %}">
-  <img src="https://pbs.twimg.com/media/ERR6OlrUYAIM7ky.jpg" width="400px" height="400px" class="relative"></a>
-      <p class="imgp">지금 즉시  지원하세요</p></a>
     {% for applicant in applicants.all %}
     <a1>
   <div class ="container">
@@ -145,4 +129,3 @@ p.imgp{
 
 </body>
 </html>
-
