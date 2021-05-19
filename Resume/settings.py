@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6ac^97d904m&4xo!hkeah5#e%0d9&c(62sibag9^tdtl32!id3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
@@ -142,3 +142,5 @@ import os
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR),"static"]
 STATIC_ROOT = os.path.join(BASE_DIR,'.static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL='/media/'

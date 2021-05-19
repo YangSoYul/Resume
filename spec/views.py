@@ -15,7 +15,7 @@ def info(request, applicant_id):
 
 def create(request):
     if request.method == 'POST':
-        form = CreateApplyForm(request.POST)
+        form = CreateApplyForm(request.POST, request.FILES)
         if form.is_valid():
             applicants = form.save(commit=False)
             applicants.date = timezone.datetime.now()
@@ -32,19 +32,20 @@ def create_applicant(request):
     person.introduce = request.GET['introduce']
     person.gender = request.GET['gender']
     person.date = timezone.datetime.now()
+    person.photo = request.FILES['photo']
     person.save()
     return redirect('/info/'+str(person.id))
 
 def edit(request, applicant_id):
     applicants = applicant.objects.get(id=applicant_id)
     if request.method == "POST":
-        form = CreateApplyForm(request.POST, instance=applicants)
+        form = CreateApplyForm(request.POST, request.FILES, instance=applicants)
         if form.is_valid():
             applicants = form.save()
             return redirect('/info/'+str(applicants.id))
     else:
         form = CreateApplyForm(instance=applicants)
-        return render(request, 'edit.html',{'form':form})
+        return render(request, 'create.html',{'form':form})
 
 def delete(request,applicant_id):
    applicants = applicant.objects.get(id=applicant_id)

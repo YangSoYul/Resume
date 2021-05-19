@@ -16,13 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from spec import views
+from django.conf import settings
+from django.conf.urls.static import static
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.main, name="main"),
     path('info/<int:applicant_id>',views.info, name="info"),
     path('create',views.create, name="crate"),
-    path('create_applicant',views.create_applicant,name="create_applicant"),
+    path('create_applicant',views.create,name="create_applicant"),
     path('edit/<int:applicant_id>',views.edit, name="edit"),
     path('delete/<int:applicant_id>',views.delete, name="delete"),
-]
+    url(r'^media/(?P<path>.*)$',serve,{'document_root':settings.MEDIA_ROOT,})
+] + static(settings.MEDIA_URL,document_root= settings.MEDIA_ROOT)

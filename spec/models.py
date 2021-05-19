@@ -13,4 +13,5 @@ class applicant(models.Model):
    introduce = models.TextField()
    gender = models.CharField(max_length=2, choices=Gender_List)
    date = models.DateTimeField('resume submitted', null=True)
+   photo = models.ImageField(upload_to="resume_img/", null=True, blank=True)
    

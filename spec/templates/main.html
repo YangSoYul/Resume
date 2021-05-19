@@ -12,120 +12,104 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </head>
 <style>
- body{
+  body{
     background-image: url("https://img.freepik.com/free-photo/soft-cloudy-is-gradient-pastel-abstract-sky-background-in-sweet-color_6529-2099.jpg?size=626&ext=jpg");
     background-size: cover;
-}  
-   @font-face {
+  }  
+  @font-face {
     font-family: 'Cafe24Oneprettynight';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
-@font-face {
+  @font-face {
     font-family: 'TmoneyRoundWindExtraBold';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-07@1.0/TmoneyRoundWindExtraBold.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-}
+  }
 
-
-    a1{
-        font-weight: lighter;
-        font-size: 30px;
-    }
+  a1{
+    font-weight: lighter;
+    font-size: 30px;
+  }
     
-
-    navfont{
-        font-family: 'Cafe24Oneprettynight';
-        font-weight: bold;
-        font-size: 40px !important;
-        text-emphasis-color: white;
-    }
+  navfont{
+    font-family: 'Cafe24Oneprettynight';
+    font-weight: bold;
+    font-size: 40px !important;
+    text-emphasis-color: white;
+  }
 
   .container {
-
     display: flex;
     margin-left: 0px;
     justify-content: flex-start;
     align-items: left;
-}
-.item2{
-  margin-left: 0%;
-  text-align: center;
-  line-height: 115px;
-  font-size: 40px;
-}
-
-
+  }
+  .item2{
+    margin-left: 0%;
+    text-align: center;
+    line-height: 115px;
+    font-size: 40px;
+  }
 </style>
 <body>
-    <navfont>
-      <nav class="navbar navbar-expand-lg navbar-light" style="background-image: url(https://img.freepik.com/free-photo/soft-cloudy-is-gradient-pastel-abstract-sky-background-in-sweet-color_6529-2099.jpg?size=626&ext=jpg); background-size: cover; border-bottom: 3px solid black; margin-bottom: 20px;">   
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">지원자명단</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'crate' %}" style="color: blue;">지원하기</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" >지원자정보</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" >지원수정</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-</navfont>
-<h1 style="font-family: 'Cafe24Oneprettynight'; font-size: 80px; color: rgb(255, 246, 116)   ;"><span style="border-bottom: 11px solid #fcfdc9; padding: 0 0 0 0.2em;margin-top: 15  px;">지원자 명단</span></h1> <br>
-<p style="font-family: 'Cafe24Oneprettynight';font-size: 25px; font-style: italic;color: rgb(21, 95, 255);">지원서를 작성하실 분은 상단에 지원하기 버튼을 눌러주세요.</p>
+  <navfont>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-image: url(https://img.freepik.com/free-photo/soft-cloudy-is-gradient-pastel-abstract-sky-background-in-sweet-color_6529-2099.jpg?size=626&ext=jpg); background-size: cover; border-bottom: 3px solid black; margin-bottom: 20px;">   
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">지원자명단</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'crate' %}" style="color: blue;">지원하기</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >지원자정보</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" >지원서작성</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </navfont>
+
+  <h1 style="font-family: 'Cafe24Oneprettynight'; font-size: 80px; color: rgb(255, 246, 116);"><span style="border-bottom: 11px solid #fcfdc9; padding: 0 0 0 0.2em;margin-top: 15  px;">지원자 명단</span></h1> <br>
+  <p style="font-family: 'Cafe24Oneprettynight';font-size: 25px; font-style: italic;color: rgb(21, 95, 255);">지원서를 작성하실 분은 상단에 지원하기 버튼을 눌러주세요.</p>
 
     
-    {% for applicant in applicants.all %}
-    <a1>
+  {% for applicant in applicants.all %}<a1>
+      
   <div class ="container">
-    <div class="item">
+    <div class="item2">
+      <img src="{{applicant.photo.url}}" alt="" style=" width: 150px; margin-right: 10px; height: 171px;"">
+    </div>
+
+    <div class="">
       <span style="display:inline-block; border-radius: 5px;padding: 0.6em 1em;background: hsl(286, 57%, 91%); width: 700px;  margin-right: 20px;   font-family: 'TmoneyRoundWindExtraBold';  ">
-          <a style="color:rgb(120, 119, 122);text-decoration: none;" href="{% url 'info' applicant.id %}">
-             지원자명: {{applicant.name}} <br> 나이 : {{applicant.age}}살<br> 성별 :{{applicant.gender}} 
-          </a></div></span>
+        <a style="color:rgb(120, 119, 122);text-decoration: none;" href="{% url 'info' applicant.id %}">
+          지원자명: {{applicant.name}} <br> 나이 : {{applicant.age}}살<br> 성별 :{{applicant.gender}} 
+        </a></span>
+    </div>
 
     <div class="item2">
-        <span style="display:inline-block; border-radius: 5px;padding: 0.6em 1em;background: #c7ffa7; width: 200px;  margin-right: 20px; height: 171px; font-family: 'TmoneyRoundWindExtraBold'; ">
-          <a style="color:rgb(120, 119, 122);text-decoration: none;" href="{% url 'edit' applicant.id %}">수정</a>
-        </span></div>
-        
+      <span style="display:inline-block; border-radius: 5px;padding: 0.6em 1em;background: #c7ffa7; width: 200px;  margin-right: 20px; height: 171px; font-family: 'TmoneyRoundWindExtraBold'; ">
+        <a style="color:rgb(120, 119, 122);text-decoration: none;" href="{% url 'edit' applicant.id %}">수정</a>
+        </span>
+    </div>
+
     <div class="item2">
       <span style="display:inline-block; border-radius: 5px;padding: 0.6em 1em;background: #b0f6ff; width: 200px; height: 171px;  font-family: 'TmoneyRoundWindExtraBold'; ">
         <a style="color:rgb(120, 119, 122);text-decoration: none;" href="{% url 'delete' applicant.id %}">삭제</a>
-    </a></span></div>
-  </div></a1>
-   <br>
-    {% endfor %}
+      </span>
+    </div>
+  </div>
+</a1>
+  <br>
 
-
-
-   
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  {% endfor %}
 </body>
 </html>

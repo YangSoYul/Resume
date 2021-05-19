@@ -5,7 +5,7 @@ from django import forms
 class CreateApplyForm(forms.ModelForm):
     class Meta:
         model = applicant
-        fields = ['name','age','introduce','gender']
+        fields = ['name','age','introduce','gender','photo']
         widgets={
             'name':forms.TextInput(
                 attrs={
