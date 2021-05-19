@@ -48,6 +48,6 @@ def edit(request, applicant_id):
         return render(request, 'create.html',{'form':form})
 
 def delete(request,applicant_id):
-   applicants = applicant.objects.get(id=applicant_id)
-   applicants.delete()
-   return redirect("main")
+    applicants = applicant.objects.get(id=applicant_id)
+    applicants.delete()
+    return redirect("main")
