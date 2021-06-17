@@ -10,6 +10,7 @@
 </head>
     <title>지원서</title>
 </head>
+
 {% block content %}
 <style>
   body{
@@ -36,45 +37,26 @@
     text-decoration: none;
   }
     
-
-  .container {
-    display: flex;
-    margin-left: 0px;
-    justify-content: flex-start;
-    align-items: left;
-}
-
-  .item2{
-    margin-left: 0%;
-    text-align: center;
-    line-height: 115px;
-    font-size: 40px;
-    margin-right: 20px;
-}  
 </style>
 <body>
-<h1 style="font-family: 'Cafe24Oneprettynight'; font-size: 80px; font-weight: bold;"><span style="border-bottom: 11px solid #dcf1fb; padding: 0 0 0 0.2em;"><fc>{{resume_info.name}}</fc>님의 지원서</span></h1><br><br>
-
-<div class ="container">
-  <div class="item2">
-    <img src="{{resume_info.photo.url}}" alt="" width="400px" height="560px">
-  </div>
-
-  <div>
+<h1 style="font-family: 'Cafe24Oneprettynight'; font-size: 80px; font-weight: bold;"><span style="border-bottom: 11px solid #dcf1fb; padding: 0 0 0 0.2em;"><fc>{{user.username}}</fc>님의 로그인정보</span></h1><br><br>
+{% if user.is_authenticated %}
+<div>
     <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
-        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>성명 </fc2>{{resume_info.name}}</span></p>
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>성명 </fc2>{{user.username}}</span></p>
     <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
-        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:10px 0px 0px 0px; width:600px;"><fc2>나이 </fc2>{{resume_info.age}}살</span></p>
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:10px 0px 0px 0px; width:600px;"><fc2>나이 </fc2>{{user.age}}살</span></p>
     <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
-        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:10px 0px 0px 0px; height: 300px; width:600px;"><fc2>지원각오</fc2> <br>{{resume_info.introduce}}</span></p>
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:10px 0px 0px 0px; width:600px;"><fc2>학교</fc2> {{user.school}}</span></p>
     <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
-        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>성별 </fc2> {{resume_info.gender}}</span></p>
-  <!--날짜 형식 수정-->
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>전공 </fc2> {{user.major}}</span></p>
     <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
-        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>지원날짜 </fc2>{{resume_info.date|date:'Y년 m월 d일 H시 i분'}}</span></p>
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>학년 </fc2> {{user.grade}}</span></p>
+    <p><span style="display:inline-block; background: linear-gradient(to right, #ffa7a3, #5673bd); 
+        padding: 0.43em 1em; font-size: 19px; border-radius: 3px; color: #ffffff; margin:0 px; width:600px;"><fc2>좋아하는 것 </fc2>{{user.like}}</span></p>
   </div>
 </div>
-
+{% endif %}
 <br>
 
 <span style="border-radius: 5em; padding: 0.6em 1em; background: #ffbc85; box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  margin-left: 5px;"><a style="font-family: 'Cafe24Oneprettynight'; font-size: 20px;" href="{% url 'main' %}">메인으로가기</a> </span>

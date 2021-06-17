@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,6 +28,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
+AUTH_USER_MODEL = 'account.Applicant'
+
 
 # Application definition
 
@@ -38,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'spec.apps.SpecConfig',
-    'bootstrap4'
+    'bootstrap4',
+    'account.apps.AccountConfig',
 ]
 
 MIDDLEWARE = [
@@ -57,7 +61,7 @@ ROOT_URLCONF = 'Resume.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['spec/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,21 +80,21 @@ WSGI_APPLICATION = 'Resume.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-#DATABASES = {
+# DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
 #    }
-#}
+# }
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'd1o8vu609rhb14',
-        'USER':'ecykdhqzhvikzb',
-        'PASSWORD':'1300da6d46cb06fa24b79bad6594a436d05eef8e4bf4564d5eecd8c9351b3b5c',
-        'HOST':'ec2-35-174-35-242.compute-1.amazonaws.com',
-        'PORT':'5432',
+        'USER': 'ecykdhqzhvikzb',
+        'PASSWORD': '1300da6d46cb06fa24b79bad6594a436d05eef8e4bf4564d5eecd8c9351b3b5c',
+        'HOST': 'ec2-35-174-35-242.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -138,9 +142,8 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-import os
 
-STATICFILES_DIRS = [os.path.join(BASE_DIR),"static"]
-STATIC_ROOT = os.path.join(BASE_DIR,'.static_root')
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL='/media/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR), "static"]
+STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
